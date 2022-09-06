@@ -4,19 +4,23 @@ using System.Runtime.InteropServices;
 
 namespace dotnetcoresample.Pages;
 
-public class IndexModel : PageModel
+public class HealthCheckModel : PageModel
 {
-
-    public string OSVersion { get { return RuntimeInformation.OSDescription; }  }
+   public IActionResult Privacy()
+   {
+        return RedirectPermanent("~/");
+   }
     
-    private readonly ILogger<IndexModel> _logger;
+   public string OSVersion { get { return RuntimeInformation.OSDescription; }  }
+    
+   private readonly ILogger<IndexModel> _logger;
 
-    public IndexModel(ILogger<IndexModel> logger)
+   public HealthCheckModel(ILogger<HealthCheckModel> logger)
     {
         _logger = logger;
     }
 
-    public void OnGet()
+   public void OnGet()
     {        
     }
 }
